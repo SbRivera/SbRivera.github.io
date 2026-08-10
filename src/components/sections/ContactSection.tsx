@@ -1,8 +1,10 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import { socialLinks } from '../../data/socialLinks';
+import SectionTitle from '../shared/SectionTitle';
+import ExternalLink from '../shared/ExternalLink';
 
-/* ── SVG icons ─────────────────────────────────────── */
 const LinkedInIcon = () => (
   <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
     <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
@@ -36,61 +38,33 @@ const UniversityMailIcon = () => (
   </svg>
 );
 
-const PersonIcon = () => (
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+const DownloadIcon = () => (
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 
-const PhoneIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C9.6 21 3 14.4 3 6c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-  </svg>
-);
-
-const SmallMailIcon = () => (
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" strokeWidth="2"/>
-    <path d="M2 7l10 7 10-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-  </svg>
-);
-
-/* ── Component ─────────────────────────────────────── */
-const Contact: React.FC = () => {
+const ContactSection: React.FC = () => {
   const { t } = useTranslation();
   const titleRef = useScrollAnimation<HTMLHeadingElement>({ duration: 700 });
   const leftRef = useScrollAnimation<HTMLDivElement>({ translateX: [-30, 0], translateY: [0, 0], duration: 800 });
   const rightRef = useScrollAnimation<HTMLDivElement>({ translateX: [30, 0], translateY: [0, 0], duration: 800, delay: 150 });
-  const refsRef = useStaggerAnimation<HTMLDivElement>('.ref-card', { stagger: 120, duration: 650 });
 
-  const socialLinks = [
-    { name: 'LinkedIn',          icon: <LinkedInIcon />,      url: 'https://linkedin.com/in/sebastian-rivera-novillo', color: '#0077b5' },
-    { name: 'GitHub',            icon: <GitHubIcon />,        url: 'https://github.com/SbRivera',                     color: '#333'    },
-    { name: 'WhatsApp',          icon: <WhatsAppIcon />,      url: 'https://wa.me/593995085689',                      color: '#25d366' },
-    { name: 'Email Personal',    icon: <MailIcon />,          url: 'mailto:sebastianriv2112@gmail.com',               color: '#ea4335' },
-    { name: 'Email Institucional', icon: <UniversityMailIcon />, url: 'mailto:sbrivera2@espe.edu.ec',                color: '#34a853' },
+  const links = [
+    { ...socialLinks.linkedin, icon: <LinkedInIcon />, color: '#0077b5' },
+    { ...socialLinks.github, icon: <GitHubIcon />, color: '#333' },
+    { ...socialLinks.whatsapp, icon: <WhatsAppIcon />, color: '#25d366' },
+    { ...socialLinks.emailPersonal, icon: <MailIcon />, color: '#ea4335' },
+    { ...socialLinks.emailInstitutional, icon: <UniversityMailIcon />, color: '#34a853' },
   ];
 
   return (
     <section id="contact" className="section">
-      <h2 ref={titleRef} className="section-title font-cinzel">
-        {t('contact.title')}
-      </h2>
+      <SectionTitle title={t('contact.title')} titleRef={titleRef} />
 
-      <p style={{
-        textAlign: 'center',
-        fontSize: '1.1rem',
-        marginBottom: '3rem',
-        color: 'var(--text-secondary)',
-        maxWidth: '600px',
-        margin: '0 auto 3rem auto',
-      }}>
-        {t('contact.description')}
-      </p>
+      <p className="contact-intro">{t('contact.description')}</p>
 
       <div className="grid grid-2" style={{ alignItems: 'start' }}>
-        {/* Social links */}
         <div ref={leftRef} style={{ opacity: 0 }}>
           <div className="card">
             <h3 style={{
@@ -102,15 +76,10 @@ const Contact: React.FC = () => {
               {t('contact.connectTitle')}
             </h3>
 
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
-              gap: '0.85rem',
-              marginBottom: '2rem',
-            }}>
-              {socialLinks.map((link, index) => (
+            <div className="contact-links-grid">
+              {links.map((link) => (
                 <a
-                  key={index}
+                  key={link.id}
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -118,14 +87,18 @@ const Contact: React.FC = () => {
                   style={{ '--link-color': link.color } as React.CSSProperties}
                 >
                   <span className="social-icon">{link.icon}</span>
-                  <span style={{ fontWeight: 500 }}>{link.name}</span>
+                  <span style={{ fontWeight: 500 }}>{t(link.labelKey)}</span>
                 </a>
               ))}
             </div>
+
+            <ExternalLink href={socialLinks.cvDownload.url!} className="btn btn-outline contact-cv-btn">
+              <DownloadIcon />
+              {t('buttons.downloadCV')}
+            </ExternalLink>
           </div>
         </div>
 
-        {/* Direct contact */}
         <div ref={rightRef} style={{ opacity: 0 }}>
           <div className="card">
             <h3 style={{
@@ -149,7 +122,7 @@ const Contact: React.FC = () => {
             </p>
 
             <a
-              href="mailto:sebastianriv2112@gmail.com?subject=Oportunidad%20Profesional&body=Hola%20Sebastián,%0D%0A"
+              href={`${socialLinks.emailPersonal.url}?subject=Oportunidad%20Profesional&body=Hola%20Sebasti%C3%A1n,%0D%0A`}
               className="btn"
               style={{
                 width: '100%',
@@ -168,7 +141,7 @@ const Contact: React.FC = () => {
             </a>
 
             <a
-              href="https://wa.me/593995085689?text=Hola%20Sebastián,%20me%20gustaría%20contactarte."
+              href={`${socialLinks.whatsapp.url}?text=Hola%20Sebasti%C3%A1n,%20me%20gustar%C3%ADa%20contactarte.`}
               target="_blank"
               rel="noopener noreferrer"
               className="btn btn-whatsapp"
@@ -191,69 +164,14 @@ const Contact: React.FC = () => {
               <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
                 <strong style={{ color: 'var(--accent-primary)' }}>Email:</strong> sebastianriv2112@gmail.com
               </p>
-              <p style={{ margin: '0.35rem 0 0', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-                <strong style={{ color: 'var(--accent-primary)' }}>Tel:</strong> +593 995 085 689
-              </p>
             </div>
           </div>
         </div>
       </div>
 
-      {/* References */}
-      <div style={{ marginTop: '4rem' }}>
-        <h3 className="font-cinzel" style={{
-          textAlign: 'center',
-          marginBottom: '2.5rem',
-          color: 'var(--accent-primary)',
-          fontSize: '1.8rem',
-        }}>
-          {t('contact.references.title')}
-        </h3>
-
-        <div ref={refsRef} className="grid grid-3">
-          {Object.entries(
-            t('contact.references.contacts', { returnObjects: true }) as Record<string, { name: string; title: string; phone: string; email: string }>
-          ).map(([key, ref]) => (
-            <div key={key} className="card ref-card" style={{ opacity: 0, textAlign: 'center' }}>
-              <div style={{ color: 'var(--accent-primary)', marginBottom: '1rem', display: 'flex', justifyContent: 'center' }}>
-                <PersonIcon />
-              </div>
-
-              <h4 style={{
-                fontSize: '1.1rem',
-                marginBottom: '0.4rem',
-                color: 'var(--accent-primary)',
-                fontFamily: 'var(--font-heading)',
-              }}>
-                {ref.name}
-              </h4>
-
-              <p style={{
-                fontSize: '0.9rem',
-                marginBottom: '1.25rem',
-                color: 'var(--text-secondary)',
-                fontStyle: 'italic',
-              }}>
-                {ref.title}
-              </p>
-
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
-                  <PhoneIcon />
-                  <span style={{ fontSize: '0.875rem' }}>{ref.phone}</span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', color: 'var(--text-primary)' }}>
-                  <SmallMailIcon />
-                  <span style={{ fontSize: '0.875rem' }}>{ref.email}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      <p className="references-note">{t('contact.referencesNote')}</p>
     </section>
   );
 };
 
-export default Contact;
-
+export default ContactSection;

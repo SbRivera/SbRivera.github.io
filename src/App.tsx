@@ -2,24 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './i18n';
 import './styles/index.css';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import HeroSection from './components/sections/HeroSection';
+import AboutSection from './components/sections/AboutSection';
+import ExperienceSection from './components/sections/ExperienceSection';
+import ProjectsSection from './components/sections/ProjectsSection';
+// GitHub repos carousel — disabled for now (repos aren't representative yet). See GitHubReposSection.tsx.
+// import GitHubReposSection from './components/sections/GitHubReposSection';
+import CertificatesSection from './components/sections/CertificatesSection';
+import TechnologySection from './components/sections/TechnologySection';
+import ContactSection from './components/sections/ContactSection';
 import AppDownload from './components/AppDownload';
+
+const SECTION_IDS = ['hero', 'about', 'experience', 'projects', 'certificates', 'technologies', 'contact'];
 
 const Home: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'about', 'experience', 'skills', 'projects', 'contact'];
       const scrollPosition = window.scrollY + window.innerHeight / 2;
 
-      for (const section of sections) {
+      for (const section of SECTION_IDS) {
         const element = document.getElementById(section);
         if (element) {
           const { offsetTop, offsetHeight } = element;
@@ -40,20 +45,17 @@ const Home: React.FC = () => {
     <>
       <Navbar activeSection={activeSection} />
       <main>
-        <Hero />
-        <About />
-        <Experience />
-        <Skills />
-        <Projects />
-        <Contact />
+        <HeroSection />
+        <AboutSection />
+        <ExperienceSection />
+        <ProjectsSection />
+        {/* <GitHubReposSection /> */}
+        <CertificatesSection />
+        <TechnologySection />
+        <ContactSection />
       </main>
 
-      <footer className="site-footer">
-        <p className="font-cinzel">© 2025 Sebastian Rivera.</p>
-        <p style={{ fontSize: '0.875rem', marginTop: '0.4rem', color: 'var(--text-muted)' }}>
-          Diseñado con React & TypeScript
-        </p>
-      </footer>
+      <Footer />
     </>
   );
 };

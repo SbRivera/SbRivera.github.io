@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
-import { useTheme } from '../hooks/useTheme';
+import { useTheme } from '../../hooks/useTheme';
 
 interface NavbarProps {
   activeSection: string;
@@ -20,20 +19,11 @@ const MoonIcon = () => (
   </svg>
 );
 
-const DownloadIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" strokeWidth="2"/>
-    <path d="M9 10l3 3 3-3M12 13V7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="12" cy="18" r="1" fill="currentColor"/>
-  </svg>
-);
-
 const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const { t, i18n } = useTranslation();
   const { theme, toggleTheme } = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +32,15 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [menuOpen]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -56,10 +55,13 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   };
 
   const navItems = [
-    { id: 'about', label: t('navigation.about') },
+    { id: 'hero', label: t('navigation.home') },
+    { id: 'about', label: t('navigation.profile') },
     { id: 'experience', label: t('navigation.experience') },
-    { id: 'skills', label: t('navigation.skills') },
     { id: 'projects', label: t('navigation.projects') },
+    // GitHub repos section disabled for now — see App.tsx.
+    { id: 'certificates', label: t('navigation.certificates') },
+    { id: 'technologies', label: t('navigation.technologies') },
     { id: 'contact', label: t('navigation.contact') },
   ];
 
@@ -80,28 +82,20 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               <a
                 href={`#${item.id}`}
                 className={`nav-link ${activeSection === item.id ? 'active' : ''}`}
+                aria-current={activeSection === item.id ? 'true' : undefined}
                 onClick={(e) => { e.preventDefault(); scrollToSection(item.id); }}
               >
                 {item.label}
               </a>
             </li>
           ))}
-          <li>
-            <button
-              className="nav-link nav-app-btn"
-              onClick={() => { setMenuOpen(false); navigate('/app'); }}
-              title={t('navigation.app') as string}
-            >
-              <DownloadIcon />
-              <span>{t('navigation.app')}</span>
-            </button>
-          </li>
         </ul>
 
         <div className="nav-controls">
           <button
             className="control-btn"
             onClick={toggleTheme}
+            aria-label={theme === 'dark' ? (t('buttons.lightMode') as string) : (t('buttons.darkMode') as string)}
             title={theme === 'dark' ? (t('buttons.lightMode') as string) : (t('buttons.darkMode') as string)}
           >
             {theme === 'dark' ? <SunIcon /> : <MoonIcon />}
@@ -110,6 +104,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           <button
             className="control-btn lang-btn"
             onClick={() => changeLanguage(i18n.language === 'es' ? 'en' : 'es')}
+            aria-label="Cambiar idioma / Change language"
             title="Cambiar idioma / Change language"
           >
             {i18n.language === 'es' ? 'EN' : 'ES'}
@@ -118,7 +113,8 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           <button
             className={`hamburger ${menuOpen ? 'active' : ''}`}
             onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Menu"
+            aria-label={menuOpen ? t('navigation.closeMenu') as string : t('navigation.openMenu') as string}
+            aria-expanded={menuOpen}
           >
             <span />
             <span />

@@ -1,137 +1,272 @@
 {
   "translation": {
     "navigation": {
-      "about": "Acerca de",
+      "home": "Inicio",
+      "profile": "Perfil",
       "experience": "Experiencia",
-      "skills": "Habilidades",
-      "projects": "Educación",
+      "projects": "Proyectos",
+      "githubRepos": "Repositorios",
+      "certificates": "Certificados",
+      "technologies": "Tecnologías",
       "contact": "Contacto",
-      "app": "App"
+      "openMenu": "Abrir menú",
+      "closeMenu": "Cerrar menú"
     },
     "hero": {
-      "title": "Sebastián Benjamín Rivera Novillo",
-      "subtitle": "Ingeniero de Software",
-      "description": "Profesional altamente proactivo y creativo, especializado en desarrollo de software y aplicaciones móviles. Comprometido con la excelencia técnica, el aprendizaje continuo y la innovación en soluciones digitales que generen impacto real."
+      "name": "Sebastián Rivera",
+      "title": "Desarrollador de Software e Inteligencia Artificial",
+      "specialties": "Python · LLMs · Agentes autónomos · Machine Learning · Backend · Automatización",
+      "description": "Desarrollo aplicaciones de inteligencia artificial, agentes autónomos, herramientas de automatización y sistemas de software orientados a resolver problemas operativos reales.",
+      "buttons": {
+        "viewProjects": "Ver proyectos"
+      }
     },
     "about": {
       "title": "Perfil Profesional",
-      "description": "Estudiante de Ingeniería de Software con sólida formación técnica y amplia experiencia práctica en desarrollo de aplicaciones móviles y análisis de datos. Me caracterizo por ser una persona altamente proactiva, creativa y con excepcional capacidad para trabajar en equipo bajo presión. Mantengo un compromiso constante con el aprendizaje continuo, la innovación tecnológica y la excelencia en cada proyecto que desarrollo.",
+      "description": "Ingeniero de Software (título en trámite) enfocado en el desarrollo de aplicaciones con inteligencia artificial, agentes autónomos y sistemas backend. Trabajo con Python, FastAPI, LangChain, TensorFlow, Laravel y Flutter en proyectos que van desde la clasificación automática de incidencias hasta aplicaciones móviles comerciales.",
+      "highlights": [
+        "Graduado de Ingeniería de Software, título en trámite.",
+        "Desarrollador de aplicaciones con inteligencia artificial.",
+        "Desarrollador de agentes autónomos y chatbots.",
+        "Experiencia con Python, FastAPI, LangChain, TensorFlow, Laravel y Flutter.",
+        "Experiencia en bases de datos, reportería, automatización y despliegues cloud."
+      ],
       "location": "Alangasí, Pichincha, Ecuador",
       "email": "sebastianriv2112@gmail.com",
       "phone": "+593 995085689",
-      "education": "Universidad de las Fuerzas Armadas ESPE",
+      "education": "Universidad de las Fuerzas Armadas ESPE — título en trámite",
       "languages": "Español (Nativo) · Inglés (B1+ Intermedio Alto)",
       "labelLocation": "Ubicación",
       "labelEmail": "Correo",
       "labelPhone": "Teléfono",
       "labelEducation": "Educación",
-      "labelLanguages": "Idiomas"
+      "labelLanguages": "Idiomas",
+      "photoAlt": "Foto de perfil de Sebastián Rivera"
     },
     "experience": {
       "title": "Experiencia Profesional",
       "companies": {
         "company1": {
+          "name": "Coopartamos",
+          "position": "Desarrollador de Software",
+          "period": "2025 - Actualidad",
+          "responsibilities": [
+            "Desarrollo del agente virtual autónomo para clasificación y seguimiento de incidencias (proyecto de titulación).",
+            "Desarrollo y mantenimiento del sistema de mesa de ayuda (Laravel, SQL Server) utilizado por el equipo interno.",
+            "Integración progresiva entre el agente virtual y el sistema de mesa de ayuda."
+          ]
+        },
+        "company2": {
           "name": "Ecuagraphic",
           "position": "Desarrollador de Aplicaciones Móviles",
           "period": "2024",
-          "description": "Desarrollo integral de aplicación móvil comercial para empresa ecuatoriana líder en el sector gráfico. Implementación de soluciones orientadas a mejorar la presencia digital corporativa y optimizar la experiencia del usuario final a través de interfaces intuitivas y funcionalidades innovadoras."
+          "responsibilities": [
+            "Desarrollo end-to-end de una aplicación móvil comercial para Ecuagraphic, empresa del sector gráfico.",
+            "Implementación de la interfaz de usuario y las funcionalidades principales de la aplicación.",
+            "Integración de la app con la presencia digital corporativa de la empresa."
+          ]
         },
-        "company2": {
+        "company3": {
           "name": "Club de Entrenamiento Cerebral (CEC)",
           "position": "Instructor de Programación y Herramientas Digitales",
           "period": "2023",
-          "description": "Facilitación de talleres especializados en introducción a la programación y capacitaciones en herramientas digitales modernas. Diseño e implementación de metodologías didácticas para la enseñanza de conceptos fundamentales de programación, promoviendo el pensamiento lógico y estructurado en estudiantes."
+          "responsibilities": [
+            "Facilitación de talleres de introducción a la programación y herramientas digitales.",
+            "Diseño de metodologías didácticas para enseñar conceptos fundamentales de programación."
+          ]
         },
-        "company3": {
+        "company4": {
           "name": "Tutoría Académica Independiente",
           "position": "Tutor de Ciencias Exactas",
           "period": "2023",
-          "description": "Acompañamiento académico personalizado en matemáticas y física, desarrollando estrategias de aprendizaje efectivas y métodos de resolución de problemas. Apoyo integral a estudiantes para fortalecer sus competencias en ciencias exactas mediante enfoques pedagógicos adaptados a diferentes estilos de aprendizaje."
+          "responsibilities": [
+            "Acompañamiento académico personalizado en matemáticas y física.",
+            "Desarrollo de estrategias de aprendizaje y métodos de resolución de problemas adaptados a cada estudiante."
+          ]
         }
-      }
-    },
-    "skills": {
-      "title": "Competencias Técnicas",
-      "categories": {
-        "mobile": "Desarrollo Móvil",
-        "programming": "Lenguajes de Programación",
-        "database": "Gestión de Datos",
-        "analytics": "Análisis y Métricas",
-        "tools": "Herramientas y Metodologías"
-      },
-      "items": {
-        "flutter": "Flutter & Dart",
-        "java": "Java",
-        "javascript": "JavaScript",
-        "python": "Python",
-        "sql": "SQL Avanzado",
-        "kpi": "Indicadores KPI",
-        "algorithms": "Algoritmos y Estructuras",
-        "ui_design": "Diseño de Interfaces",
-        "mobile_dev": "Aplicaciones Móviles",
-        "data_analysis": "Análisis de Datos"
       }
     },
     "projects": {
-      "title": "Formación Académica",
-      "items": {
-        "university": {
-          "name": "Universidad de las Fuerzas Armadas ESPE",
-          "degree": "Ingeniería de Software",
-          "location": "Sangolquí, Ecuador",
-          "period": "2020 - Actualidad",
-          "status": "En curso"
-        },
-        "highschool": {
-          "name": "Instituto Nacional Mejía",
-          "degree": "Bachiller en Ciencias",
-          "location": "Quito, Ecuador",
-          "period": "2015 - 2020",
-          "status": "Completado"
-        }
+      "title": "Proyectos",
+      "subtitle": "Selección de proyectos aplicados y académicos en inteligencia artificial, backend y desarrollo móvil.",
+      "filters": {
+        "groupLabel": "Filtrar proyectos por categoría",
+        "all": "Todos"
       },
-      "viewProject": "Ver Proyecto",
-      "viewCode": "Ver Código"
+      "categories": {
+        "ai-llm": "Inteligencia Artificial y LLMs",
+        "ml-cv": "Machine Learning y Visión por Computadora",
+        "backend-web": "Backend y Aplicaciones Web",
+        "mobile": "Aplicaciones Móviles",
+        "data-automation": "Datos y Automatización",
+        "academic": "Proyectos Académicos"
+      },
+      "status": {
+        "production": "En producción",
+        "implementation": "En implementación",
+        "completed": "Completado",
+        "prototype": "Prototipo",
+        "academic": "Académico"
+      },
+      "featuredLabel": "Destacado",
+      "confidentialLabel": "Proyecto institucional — código privado",
+      "buttons": {
+        "viewProject": "Ver proyecto",
+        "viewCode": "Ver código",
+        "demo": "Demo",
+        "documentation": "Documentación",
+        "caseStudy": "Caso de estudio"
+      },
+      "modal": {
+        "responsibilities": "Responsabilidades",
+        "results": "Resultados",
+        "technologies": "Tecnologías"
+      },
+      "items": {
+        "agenteVirtualIncidencias": {
+          "title": "Agente Virtual Autónomo para Gestión de Incidencias",
+          "shortDescription": "Chatbot y agente autónomo para clasificación y seguimiento de incidencias en Coopartamos.",
+          "fullDescription": "Proyecto de titulación orientado a automatizar la gestión de incidencias mediante un agente virtual capaz de clasificar solicitudes, darles seguimiento y asistir a los usuarios. Actualmente en proceso de implementación.",
+          "role": "Proyecto de titulación",
+          "responsibilities": [
+            "Clasificación automática de incidencias mediante modelos de lenguaje (LLMs).",
+            "Atención y seguimiento conversacional de incidencias a través de un agente virtual.",
+            "Integración con APIs existentes de gestión de incidentes."
+          ]
+        },
+        "aevision": {
+          "title": "AEVision",
+          "shortDescription": "Clasificación autónoma de reciclaje con machine learning y procesamiento de audio.",
+          "fullDescription": "Proyecto de machine learning para clasificación autónoma de residuos reciclables. Participé en la definición del problema, la investigación de enfoques, el diseño de la solución y la validación inicial. El sistema se encuentra actualmente en producción.",
+          "role": "Definición del problema, investigación y validación inicial",
+          "responsibilities": [
+            "Definición del problema y alcance del sistema de clasificación.",
+            "Investigación de enfoques de machine learning para procesamiento de audio.",
+            "Diseño de la solución y validación inicial del modelo."
+          ]
+        },
+        "sistemaIdentificacion": {
+          "title": "Sistema de Identificación de Personas",
+          "shortDescription": "Proyecto universitario de visión por computadora para identificación de personas.",
+          "fullDescription": "Proyecto académico desarrollado con Python, TensorFlow y NumPy para el reconocimiento e identificación de personas a partir de imágenes."
+        },
+        "ecuagraphicApp": {
+          "title": "Aplicación Móvil Ecuagraphic",
+          "shortDescription": "Aplicación móvil comercial para Ecuagraphic, con Flutter y Firebase.",
+          "fullDescription": "Desarrollo integral de una aplicación móvil comercial para Ecuagraphic, empresa ecuatoriana del sector gráfico, con Flutter y Firebase."
+        },
+        "mesaAyudaCoopartamos": {
+          "title": "Mesa de Ayuda y Servicios de Coopartamos",
+          "shortDescription": "Gestión de incidentes y solicitudes para el equipo interno de Coopartamos.",
+          "fullDescription": "Sistema desarrollado con Laravel y SQL Server para la gestión de incidentes y solicitudes internas, con integración progresiva a un agente virtual y chatbot.",
+          "responsibilities": [
+            "Gestión de incidentes y solicitudes del equipo interno.",
+            "Integración progresiva con el agente virtual y chatbot del proyecto de titulación."
+          ],
+          "results": [
+            "Utilizada por aproximadamente 20 a 35 colaboradores."
+          ]
+        },
+        "aventuraGalapagos": {
+          "title": "Aventura en Galápagos",
+          "shortDescription": "App Android educativa para explorar las Islas Galápagos."
+        }
+      }
+    },
+    "githubRepos": {
+      "title": "Repositorios de GitHub",
+      "subtitle": "Actividad reciente en mis repositorios públicos.",
+      "loading": "Cargando repositorios…",
+      "error": "No se pudieron cargar los repositorios en este momento.",
+      "empty": "No hay repositorios públicos disponibles.",
+      "viewProfile": "Ver perfil de GitHub",
+      "viewAll": "Ver todos en GitHub",
+      "prev": "Repositorio anterior",
+      "next": "Repositorio siguiente",
+      "noDescription": "Sin descripción."
+    },
+    "certificates": {
+      "title": "Certificados y Formación Continua",
+      "subtitle": "Cursos, certificaciones y programas de formación complementarios.",
+      "emptyState": "Todavía no se han agregado certificados. Esta sección se actualizará a medida que se completen nuevas certificaciones.",
+      "filters": {
+        "groupLabel": "Filtrar certificados por categoría",
+        "all": "Todos"
+      },
+      "categories": {
+        "ai": "Inteligencia Artificial",
+        "ml": "Machine Learning",
+        "software": "Desarrollo",
+        "cloud-devops": "Cloud y DevOps",
+        "data": "Datos",
+        "cybersecurity": "Ciberseguridad",
+        "automation": "Automatización",
+        "other": "Otros"
+      },
+      "buttons": {
+        "view": "Ver detalle",
+        "viewCertificate": "Ver certificado",
+        "verify": "Verificar credencial"
+      },
+      "modal": {
+        "credentialId": "ID de credencial",
+        "skills": "Competencias"
+      }
+    },
+    "technologies": {
+      "title": "Tecnologías",
+      "groups": {
+        "aiData": "Inteligencia Artificial y Datos",
+        "backendAutomation": "Backend y Automatización",
+        "mobile": "Desarrollo Móvil",
+        "tools": "Herramientas"
+      },
+      "items": {
+        "python": "Python",
+        "llms": "LLMs",
+        "langchain": "LangChain",
+        "tensorflow": "TensorFlow",
+        "machineLearning": "Machine Learning",
+        "autonomousAgents": "Agentes Autónomos",
+        "dataAnalysis": "Análisis de Datos",
+        "dataVisualization": "Visualización de Datos",
+        "kpi": "Indicadores KPI",
+        "fastapi": "FastAPI",
+        "laravel": "Laravel",
+        "sql": "SQL",
+        "apis": "APIs",
+        "automation": "Automatización",
+        "java": "Java",
+        "javascript": "JavaScript",
+        "flutter": "Flutter",
+        "dart": "Dart",
+        "firebase": "Firebase",
+        "androidStudio": "Android Studio",
+        "uiDesign": "Diseño de Interfaces",
+        "git": "Git / GitHub",
+        "vscode": "VS Code",
+        "debugging": "Debugging"
+      }
     },
     "contact": {
       "title": "Información de Contacto",
-      "description": "Estoy disponible para oportunidades profesionales, colaboraciones en proyectos innovadores y consultas técnicas. No dudes en contactarme.",
+      "description": "Disponible para oportunidades profesionales, colaboraciones en proyectos de inteligencia artificial y desarrollo de software, y consultas técnicas.",
       "connectTitle": "Conecta Conmigo",
       "proposalTitle": "¿Tienes una propuesta?",
-      "proposalText": "Estoy siempre abierto a nuevas oportunidades y colaboraciones. No dudes en contactarme directamente.",
+      "proposalText": "Estoy abierto a nuevas oportunidades y colaboraciones. Escríbeme directamente.",
       "buttons": {
         "email": "Enviar Email Directo",
         "whatsapp": "Escribir por WhatsApp"
       },
-      "form": {
-        "name": "Nombre",
-        "email": "Correo Electrónico",
-        "message": "Mensaje",
-        "send": "Enviar Mensaje"
+      "links": {
+        "github": "GitHub",
+        "linkedin": "LinkedIn",
+        "whatsapp": "WhatsApp",
+        "emailPersonal": "Email Personal",
+        "emailInstitutional": "Email Institucional",
+        "repository": "Repositorio"
       },
-      "references": {
-        "title": "Referencias Profesionales",
-        "contacts": {
-          "ref1": {
-            "name": "Ing. Pablo Zurita",
-            "title": "Ing. Electrónica y Telecomunicaciones",
-            "phone": "0992543513",
-            "email": "zuritaruales@hotmail.com"
-          },
-          "ref2": {
-            "name": "Dr. Jorge Bolaños",
-            "title": "Especialista en Derecho Informático",
-            "phone": "0995018560",
-            "email": "bolanospizara@hotmail.com"
-          },
-          "ref3": {
-            "name": "Ing. Fernando Solís",
-            "title": "Ing. de Sistemas y Computación",
-            "phone": "0984074616",
-            "email": "efsolis@espe.edu.ec"
-          }
-        }
-      }
+      "referencesNote": "Referencias profesionales disponibles a solicitud."
     },
     "buttons": {
       "darkMode": "Modo Oscuro",

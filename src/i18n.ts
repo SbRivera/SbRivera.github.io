@@ -24,4 +24,10 @@ i18n
     },
   });
 
+// Keep the document's lang attribute in sync with the active UI language.
+document.documentElement.lang = i18n.language;
+i18n.on('languageChanged', (lng) => {
+  document.documentElement.lang = lng;
+});
+
 export default i18n;

@@ -46,22 +46,23 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SbRivera/Curriculum_Vitae_SbRivera.git"
+    "url": "git+https://github.com/SbRivera/Portafolio.git"
   },
   "keywords": [
-    "cv",
-    "resume",
+    "portfolio",
     "react",
     "typescript",
-    "gothic",
+    "ai-developer",
+    "python",
+    "machine-learning",
     "software-engineer"
   ],
   "author": "Sebastian Rivera",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SbRivera/Curriculum_Vitae_SbRivera/issues"
+    "url": "https://github.com/SbRivera/Portafolio/issues"
   },
-  "description": "CV profesional con diseño gótico para ingeniero de software",
+  "description": "Portafolio profesional de Sebastián Rivera, desarrollador de software e inteligencia artificial",
   "devDependencies": {
     "@types/babel__traverse": "^7.28.0",
     "gh-pages": "^6.3.0"

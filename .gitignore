@@ -6,6 +6,9 @@ node_modules/
 # Testing
 /coverage
 
+# Claude
+/.claude
+
 # Production build
 /build
 
@@ -85,9 +88,10 @@ typings/
 .nuxt
 dist
 
-# Gatsby files
-.cache/
-public
+# Note: no blanket "public" ignore here — this is a Create React App project,
+# where public/ is a tracked source folder, not a build output directory.
+# Large binaries that shouldn't be committed to git history go here instead:
+*.apk
 
 # Storybook build outputs
 .out
@@ -122,3 +126,6 @@ Thumbs.db
 
 # Misc
 *.log
+
+# graphify knowledge-graph output (local dev tool, not part of the site)
+graphify-out/

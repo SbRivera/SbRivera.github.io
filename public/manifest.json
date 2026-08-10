@@ -1,6 +1,6 @@
 {
-  "short_name": "CV SbRivera",
-  "name": "Curriculum Vitae - Sebastian Rivera",
+  "short_name": "S. Rivera",
+  "name": "Sebastián Rivera - Software & AI Developer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -10,6 +10,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#00d4ff",
-  "background_color": "#1a1a1a"
+  "theme_color": "#0b0f14",
+  "background_color": "#0b0f14"
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
+import SectionTitle from '../shared/SectionTitle';
 
 const LocationIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,32 +38,59 @@ const LanguageIcon = () => (
   </svg>
 );
 
-const About: React.FC = () => {
+const CheckIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M20 6L9 17l-5-5" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+const AboutSection: React.FC = () => {
   const { t } = useTranslation();
   const leftRef = useScrollAnimation<HTMLDivElement>({ translateX: [-30, 0], translateY: [0, 0], duration: 800 });
   const rightRef = useScrollAnimation<HTMLDivElement>({ translateX: [30, 0], translateY: [0, 0], duration: 800, delay: 150 });
   const titleRef = useScrollAnimation<HTMLHeadingElement>({ duration: 700 });
 
+  const highlights = t('about.highlights', { returnObjects: true }) as string[];
+
   const contactInfo = [
     { icon: <LocationIcon />, label: t('about.labelLocation'), value: t('about.location') },
-    { icon: <MailIcon />,     label: t('about.labelEmail'),    value: t('about.email') },
-    { icon: <PhoneIcon />,    label: t('about.labelPhone'),    value: t('about.phone') },
+    { icon: <MailIcon />, label: t('about.labelEmail'), value: t('about.email') },
+    { icon: <PhoneIcon />, label: t('about.labelPhone'), value: t('about.phone') },
     { icon: <GraduationIcon />, label: t('about.labelEducation'), value: t('about.education') },
     { icon: <LanguageIcon />, label: t('about.labelLanguages'), value: t('about.languages') },
   ];
 
   return (
     <section id="about" className="section">
-      <h2 ref={titleRef} className="section-title font-cinzel">
-        {t('about.title')}
-      </h2>
+      <SectionTitle title={t('about.title')} titleRef={titleRef} />
 
-      <div className="grid grid-2" style={{ alignItems: 'center' }}>
+      <div className="grid grid-2" style={{ alignItems: 'start' }}>
         <div ref={leftRef} style={{ opacity: 0 }}>
           <div className="card">
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.9', marginBottom: '2rem' }}>
+            <p style={{ fontSize: '1.05rem', lineHeight: '1.8', marginBottom: '1.5rem' }}>
               {t('about.description')}
             </p>
+
+            <ul className="about-highlights">
+              {highlights.map((item, index) => (
+                <li key={index}>
+                  <span className="about-highlight-icon"><CheckIcon /></span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div ref={rightRef} style={{ opacity: 0 }}>
+          <div className="card">
+            <div className="profile-photo-container profile-photo-container--compact">
+              <img
+                src={`${process.env.PUBLIC_URL}/profile.png`}
+                alt={t('about.photoAlt') as string}
+                className="profile-photo"
+              />
+            </div>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               {contactInfo.map((info, index) => (
@@ -88,37 +116,9 @@ const About: React.FC = () => {
             </div>
           </div>
         </div>
-
-        <div ref={rightRef} style={{ opacity: 0 }}>
-          <div className="card" style={{ textAlign: 'center' }}>
-            <div className="profile-photo-container">
-              <img
-                src={`${process.env.PUBLIC_URL}/xd1.png`}
-                alt="Sebastian Rivera"
-                className="profile-photo"
-              />
-            </div>
-
-            <h3 className="font-playfair" style={{
-              fontSize: '1.5rem',
-              color: 'var(--accent-primary)',
-              marginBottom: '1rem',
-            }}>
-              Sebastián Rivera
-            </h3>
-
-            <p style={{
-              color: 'var(--text-secondary)',
-              fontStyle: 'italic',
-              fontSize: '1.05rem',
-            }}>
-              "La excelencia no es una habilidad, es una actitud."
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
 };
 
-export default About;
+export default AboutSection;

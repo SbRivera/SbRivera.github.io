@@ -1,6 +1,9 @@
 import { useEffect, useRef, RefObject } from 'react';
 import { animate, stagger } from 'animejs';
 
+const prefersReducedMotion = () =>
+  typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 interface ScrollAnimationOptions {
   translateY?: number[];
   translateX?: number[];
@@ -21,6 +24,12 @@ export const useScrollAnimation = <T extends HTMLElement>(
   useEffect(() => {
     const element = elementRef.current;
     if (!element) return;
+
+    if (prefersReducedMotion()) {
+      element.style.opacity = '1';
+      element.style.transform = 'none';
+      return;
+    }
 
     const params: Record<string, any> = {
       duration: options.duration ?? 800,
@@ -72,6 +81,15 @@ export const useStaggerAnimation = <T extends HTMLElement>(
     if (!container) return;
 
     const children = container.querySelectorAll<HTMLElement>(childSelector);
+
+    if (prefersReducedMotion()) {
+      children.forEach((child) => {
+        child.style.opacity = '1';
+        child.style.transform = 'none';
+      });
+      return;
+    }
+
     children.forEach((child) => {
       child.style.opacity = '0';
       child.style.transform = 'translateY(20px)';
