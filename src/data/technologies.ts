@@ -33,6 +33,8 @@ export const technologyGroups: TechnologyGroup[] = [
       'technologies.items.automation',
       'technologies.items.java',
       'technologies.items.javascript',
+      'technologies.items.typescript',
+      'technologies.items.angular',
     ],
   },
   {

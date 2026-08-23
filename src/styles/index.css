@@ -1074,6 +1074,11 @@ textarea:focus {
   object-fit: cover;
 }
 
+.project-card-media img.certificate-card-preview {
+  object-fit: contain;
+  background: #fff;
+}
+
 .project-card-media-placeholder {
   color: var(--text-muted);
 }

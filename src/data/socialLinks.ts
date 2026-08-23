@@ -35,7 +35,7 @@ export const socialLinks: Record<string, SocialLink> = {
   cvDownload: {
     id: 'cvDownload',
     labelKey: 'buttons.downloadCV',
-    url: 'https://drive.google.com/file/d/1HbK7f_AeUo5d5LQM0AyaDMNW6ppqtu3H/view?usp=sharing',
+    url: 'https://drive.google.com/file/d/1ZvlXxtymgHJMHXo4GdeH5aTxEINiXXxS/view?usp=sharing',
   },
   repository: {
     id: 'repository',

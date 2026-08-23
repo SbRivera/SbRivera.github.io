@@ -238,6 +238,8 @@
         "automation": "Automatización",
         "java": "Java",
         "javascript": "JavaScript",
+        "typescript": "TypeScript",
+        "angular": "Angular",
         "flutter": "Flutter",
         "dart": "Dart",
         "firebase": "Firebase",

@@ -15,7 +15,12 @@ const CertificateCard: React.FC<CertificateCardProps> = ({ certificate, onOpen }
     <div className="card certificate-card">
       <div className="project-card-media">
         {certificate.image ? (
-          <img src={certificate.image} alt={certificate.title} loading="lazy" />
+          <img
+            src={certificate.image}
+            alt={`Vista previa del certificado ${certificate.title}`}
+            loading="lazy"
+            className="certificate-card-preview"
+          />
         ) : (
           <div className="project-card-media-placeholder" aria-hidden="true">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
